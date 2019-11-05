@@ -11,18 +11,29 @@ public class UIManager : MonoBehaviour
     public Animator drinkOptionsPanel;
     public Animator ticketPanel;
     public Text shotText;
+    public Text totalText;
+    public Text orderText;
+    public Text optionsTitle;
 
     private int shots = 0;
+    private int total = 0;
+    private string drinkName = "";
+    private string order = "";
 
     public void ToggleDeliveryMenu(){
         deliveryPanel.SetActive(!deliveryPanel.activeSelf);
     }
 
-    public void ShowOptions()
+    public void ShowOptions(string name)
     {
         menuPanel.SetBool("isHidden", true);
         ticketPanel.SetBool("isHidden", true);
+
+        drinkName = name;
+        optionsTitle.text = "How would you like your " + name + "?";
+
         drinkOptionsPanel.SetBool("isHidden", false);
+
         
     }
 
