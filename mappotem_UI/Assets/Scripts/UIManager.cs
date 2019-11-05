@@ -20,9 +20,16 @@ public class UIManager : MonoBehaviour
 
 
     private int shots = 0;
-    private int total = 0;
+    private double total = 0.00;
     private string drinkName = "";
     private string order = "";
+
+    public void Start()
+    {
+        deliveryPanel.SetActive(true);
+        ClearTicket();
+        ClearFields();
+    }
 
     public void ToggleDeliveryMenu(){
         deliveryPanel.SetActive(!deliveryPanel.activeSelf);
@@ -51,6 +58,7 @@ public class UIManager : MonoBehaviour
     public void CancelDrink()
     {
         ToMain();
+        ClearFields();
     }
     public void AddtoOrder()
     {
@@ -58,17 +66,21 @@ public class UIManager : MonoBehaviour
         string size;
         string iced;
         string decaf;
+        double price;
         if(sizeSlider.value > 0.66)
         {
             drink += "\n\tlarge";
+            price = 4.99;
         }
         else if(sizeSlider.value > 0.33)
         {
             drink += "\n\tmedium";
+            price = 3.45;
         }
         else
         {
             drink += "\n\tsmall";
+            price = 1.50;
         }
         if(icedToggle.isOn)
         {
@@ -80,15 +92,19 @@ public class UIManager : MonoBehaviour
         }
         if(shots > 0)
         {
-            drink += "\n\t" + shotText + " extra shot";
+            drink += "\n\t" + shotText.text + " extra shot";
             if(shots > 1)
             {
                 drink += "s";
             }
         }
         AddItem(drink);
-        ClearFields();
+
+        total += price;
+        totalText.text = "Total: $" + total.ToString();
+
         ToMain();
+        ClearFields();
     }
     public void AddShot()
     {
@@ -106,8 +122,23 @@ public class UIManager : MonoBehaviour
 
     public void AddItem(string item)
     {
+        double price;
         order += "\n" + item;
         orderText.text = order;
+        if (item.Equals("muffin"))
+        {
+            price = 5.50;
+        }
+        else if(item.Equals("cake pop"))
+        {
+            price = 2.05;
+        }
+        else
+        {
+            price = 4.00;
+        }
+        total += price;
+        totalText.text = "Total: $" + total.ToString();
     }
 
     public void ClearFields()
@@ -125,5 +156,11 @@ public class UIManager : MonoBehaviour
         orderText.text = "";
     }
 
+    public void CancelOrder()
+    {
+        ToggleDeliveryMenu();
+        ClearTicket();
+        ClearFields();
+    }
 
 }
