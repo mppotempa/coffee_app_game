@@ -788,7 +788,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 830019551}
-        m_MethodName: ToMain
+        m_MethodName: CancelDrink
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1658,7 +1658,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 523990482}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 830019551}
+        m_MethodName: ToggleDeliveryMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &523990482
@@ -2584,6 +2595,8 @@ MonoBehaviour:
   deliveryPanel: {fileID: 1056737963}
   menuPanel: {fileID: 551329695}
   drinkOptionsPanel: {fileID: 1612958858}
+  ticketPanel: {fileID: 328844760}
+  shotText: {fileID: 1926051942}
 --- !u!1 &844818758
 GameObject:
   m_ObjectHideFlags: 0
@@ -3418,7 +3431,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.769996, y: -75.8001}
+  m_AnchoredPosition: {x: 63, y: -75.8001}
   m_SizeDelta: {x: 34.82, y: 34.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1121397597
@@ -3463,7 +3476,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1121397598}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 830019551}
+        m_MethodName: AddShot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1121397598
@@ -4356,7 +4380,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 830019551}
-        m_MethodName: ToMain
+        m_MethodName: AddtoOrder
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4594,7 +4618,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 62.810005, y: -75.8001}
+  m_AnchoredPosition: {x: -10.77, y: -75.8001}
   m_SizeDelta: {x: 34.82, y: 34.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1542046580
@@ -4639,7 +4663,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1542046581}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 830019551}
+        m_MethodName: SubShot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1542046581
@@ -6006,7 +6041,7 @@ GameObject:
   - component: {fileID: 1926051943}
   - component: {fileID: 1926051942}
   m_Layer: 5
-  m_Name: ShotNunText
+  m_Name: ShotNumText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
