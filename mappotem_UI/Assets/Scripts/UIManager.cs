@@ -14,6 +14,10 @@ public class UIManager : MonoBehaviour
     public Text totalText;
     public Text orderText;
     public Text optionsTitle;
+    public Slider sizeSlider;
+    public Toggle icedToggle;
+    public Toggle decafToggle;
+
 
     private int shots = 0;
     private int total = 0;
@@ -50,7 +54,10 @@ public class UIManager : MonoBehaviour
     }
     public void AddtoOrder()
     {
+        string drink = drinkName;
         ToMain();
+
+        AddItem(drink);
     }
     public void AddShot()
     {
@@ -71,4 +78,15 @@ public class UIManager : MonoBehaviour
         order += "\n" + item;
         orderText.text = order;
     }
+
+    public void ClearFields()
+    {
+        sizeSlider.value = 0;
+        icedToggle.isOn = false;
+        decafToggle.isOn = false;
+        shots = 0;
+        shotText.text = "0";
+    }
+
+
 }
