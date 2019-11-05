@@ -62,4 +62,10 @@ public class UIManager : MonoBehaviour
         shots--;
         shotText.text = shots.ToString();
     }
+
+    public void AddItem(string item)
+    {
+        order += "\n" + item;
+        orderText.text = order;
+    }
 }
