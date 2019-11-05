@@ -87,6 +87,11 @@ public class UIManager : MonoBehaviour
         shots = 0;
         shotText.text = "0";
     }
+    public void ClearTicket()
+    {
+        totalText.text = "Total: $0.00";
+        orderText.text = "";
+    }
 
 
 }
