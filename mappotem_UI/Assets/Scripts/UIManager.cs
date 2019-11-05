@@ -55,9 +55,40 @@ public class UIManager : MonoBehaviour
     public void AddtoOrder()
     {
         string drink = drinkName;
-        ToMain();
-
+        string size;
+        string iced;
+        string decaf;
+        if(sizeSlider.value > 0.66)
+        {
+            drink += "\n\tlarge";
+        }
+        else if(sizeSlider.value > 0.33)
+        {
+            drink += "\n\tmedium";
+        }
+        else
+        {
+            drink += "\n\tsmall";
+        }
+        if(icedToggle.isOn)
+        {
+            drink += "\n\ticed";
+        }
+        if (decafToggle.isOn)
+        {
+            drink += "\n\tdecaf";
+        }
+        if(shots > 0)
+        {
+            drink += "\n\t" + shotText + " extra shot";
+            if(shots > 1)
+            {
+                drink += "s";
+            }
+        }
         AddItem(drink);
+        ClearFields();
+        ToMain();
     }
     public void AddShot()
     {
@@ -87,6 +118,7 @@ public class UIManager : MonoBehaviour
         shots = 0;
         shotText.text = "0";
     }
+
     public void ClearTicket()
     {
         totalText.text = "Total: $0.00";
