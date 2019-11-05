@@ -9,19 +9,20 @@ public class UIManager : MonoBehaviour
     public Animator menuPanel;
     public Animator drinkOptionsPanel;
 
-    public void Start()
-    {
-        menuPanel.SetBool("isShown", true);
-        drinkOptionsPanel.SetBool("isShown", false);
-    }
-
     public void ToggleDeliveryMenu(){
         deliveryPanel.SetActive(!deliveryPanel.activeSelf);
     }
 
-    public void showOptions()
+    public void ShowOptions()
     {
-        menuPanel.SetBool("isShown", false);
-        drinkOptionsPanel.SetBool("isShown", true);
+        menuPanel.SetBool("isHidden", true);
+        drinkOptionsPanel.SetBool("isHidden", false);
+        
+    }
+
+    public void ToMain()
+    {
+        drinkOptionsPanel.SetBool("isHidden", true);
+        menuPanel.SetBool("isHidden", false);
     }
 }
