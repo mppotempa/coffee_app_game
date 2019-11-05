@@ -58,8 +58,11 @@ public class UIManager : MonoBehaviour
         shotText.text = shots.ToString();
     }
     public void SubShot()
-    {
-        shots--;
+    {   
+        if(shots > 0)
+        {
+            shots--;
+        }
         shotText.text = shots.ToString();
     }
 
