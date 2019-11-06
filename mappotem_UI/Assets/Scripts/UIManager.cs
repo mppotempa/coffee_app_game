@@ -10,13 +10,16 @@ public class UIManager : MonoBehaviour
     public Animator menuPanel;
     public Animator drinkOptionsPanel;
     public Animator ticketPanel;
+    public Animator confirmationPanel;
     public Text shotText;
     public Text totalText;
     public Text orderText;
     public Text optionsTitle;
+    public Text thanksName;
     public Slider sizeSlider;
     public Toggle icedToggle;
     public Toggle decafToggle;
+    public Text nameField;
 
 
     private int shots = 0;
@@ -173,6 +176,7 @@ public class UIManager : MonoBehaviour
         orderText.text = "";
         total = 0.00;
         order = "";
+        nameField.text = "";
     }
 
     public void CancelOrder()
@@ -181,5 +185,22 @@ public class UIManager : MonoBehaviour
         ClearTicket();
         ClearFields();
     }
+    
+    public void Checkout()
+    {
+        string name = nameField.text;
+        thanksName.text = "Thanks for your order " + name + "!";
 
+        menuPanel.SetBool("isHidden", true);
+        ticketPanel.SetBool("isHidden", true);
+        confirmationPanel.SetBool("isHidden", false);
+    }
+
+    public void Done()
+    {
+        CancelOrder();
+        menuPanel.SetBool("isHidden", false);
+        ticketPanel.SetBool("isHidden", false);
+        confirmationPanel.SetBool("isHidden", true);
+    }
 }
