@@ -66,7 +66,9 @@ public class UIManager : MonoBehaviour
         string size;
         string iced;
         string decaf;
-        double price;
+        double price = 0;
+        
+        //size
         if(sizeSlider.value > 0.66)
         {
             drink += "\n\tlarge";
@@ -82,14 +84,20 @@ public class UIManager : MonoBehaviour
             drink += "\n\tsmall";
             price = 1.50;
         }
+
+        //ice
         if(icedToggle.isOn)
         {
             drink += "\n\ticed";
         }
+
+        //caffeine
         if (decafToggle.isOn)
         {
             drink += "\n\tdecaf";
         }
+
+        //shots
         if(shots > 0)
         {
             drink += "\n\t" + shotText.text + " extra shot";
@@ -98,9 +106,13 @@ public class UIManager : MonoBehaviour
                 drink += "s";
             }
         }
+
+        //adding to the menu
         AddItem(drink);
 
         total += price;
+        print(total.ToString());
+        print(price.ToString());
         totalText.text = "Total: $" + total.ToString();
 
         ToMain();
@@ -122,6 +134,7 @@ public class UIManager : MonoBehaviour
 
     public void AddItem(string item)
     {
+        print("add item");
         double price;
         order += "\n" + item;
         orderText.text = order;
@@ -133,9 +146,13 @@ public class UIManager : MonoBehaviour
         {
             price = 2.05;
         }
-        else
+        else if(item.Equals("cookie"))
         {
             price = 4.00;
+        }
+        else
+        {
+            price = 0;
         }
         total += price;
         totalText.text = "Total: $" + total.ToString();
@@ -154,6 +171,8 @@ public class UIManager : MonoBehaviour
     {
         totalText.text = "Total: $0.00";
         orderText.text = "";
+        total = 0.00;
+        order = "";
     }
 
     public void CancelOrder()
